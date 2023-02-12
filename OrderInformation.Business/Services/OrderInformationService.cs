@@ -138,5 +138,21 @@ namespace OrderInformation.Business.Services
             var orderInfo = _mapper.Map<OrderInfo>(orderInfoDTO);
             this.Update(orderInfo);
         }
+
+        public List<OrderInfoDTO> GetAllOrders()
+        {
+            List<OrderInfoDTO> result =  new List<OrderInfoDTO>();
+            var orders = this.GetAll();
+            if (orders.Any())
+            {
+                foreach (var order in orders)
+                {
+                    var orderInfoDto = _mapper.Map<OrderInfoDTO>(order);
+                    result.Add(orderInfoDto);
+                }
+            }
+            return result;
+
+        }
     }
 }

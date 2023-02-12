@@ -8,6 +8,7 @@ namespace OrderInformation.Core.DTOs
 {
     public class OrderInfoDTO
     {
+        public int Id { get; set; }
         public string CustomerOrderNo { get; set; }
         public string OutputAddress { get; set; }
         public string ArrivalAddress { get; set; }

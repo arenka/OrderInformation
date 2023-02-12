@@ -14,7 +14,7 @@ namespace OrderInformation.API.Services
         public async Task GetOrderStatu(OrderStatusDTO orderStatuDTO)
         {
             //statu
-            var response = await _httpClient.PostAsJsonAsync<OrderStatusDTO>("statu", orderStatuDTO);
+            var response = await _httpClient.PostAsJsonAsync<OrderStatusDTO>("status", orderStatuDTO);
             var responseStatu = response.Content.ReadAsStringAsync().Result;
             if (responseStatu is null)
             {

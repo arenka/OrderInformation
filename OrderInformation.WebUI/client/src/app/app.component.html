@@ -1,0 +1,44 @@
+
+<div class="container">
+    <div class="row">
+        <button (click)="openModal()">Duzenle</button>
+        <div class="col-md-8 offset-md-2">
+            <h2>Orders</h2>
+            <table class="table table-bordered table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>customerOrderNo</th>
+                        <th>outputAddress</th>
+                        <th>arrivalAddress</th>
+                        <th>amount</th>
+                        <th>quantityUnit</th>
+                        <th>weight</th>
+                        <th>materialCode</th>
+                        <th>material</th>
+                        <th>note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of store.orders">
+                        <td><input class="form-check-input" type="checkbox" (change)="onChange(order.id, $event,order.customerOrderNo);" id="selectList"></td>
+                        <td>{{order.customerOrderNo}}</td>
+                        <td>{{order.outputAddress}}</td>
+                        <td>{{order.arrivalAddress}}</td>
+                        <td>{{order.amount}}</td>
+                        <td>{{order.quantityUnit}}</td>
+                        <td>{{order.weight}}</td>
+                        <td>{{order.materialCode}}</td>
+                        <td>{{order.material}}</td>
+                        <td>{{order.note}}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

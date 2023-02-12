@@ -9,6 +9,7 @@ using OrderInformation.Core.UnitOfWorks;
 using OrderInformation.Repository;
 using OrderInformation.Repository.Repositories;
 using OrderInformation.Repository.UnitOfWork;
+using Serilog;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,8 +55,15 @@ builder.Services.AddHttpClient<OrderStatuService>(opt =>
     opt.BaseAddress = new Uri(builder.Configuration["OrderStatuService"]);
 
 });
-var app = builder.Build();
 
+
+builder.Host.UseSerilog(((ctx, config) => config.ReadFrom.Configuration(ctx.Configuration)));
+
+var app = builder.Build();
+app.UseCors(x => x
+          .AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader());
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

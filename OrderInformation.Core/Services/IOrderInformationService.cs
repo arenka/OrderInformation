@@ -12,6 +12,7 @@ namespace OrderInformation.Core.Services
     {
         Task<List<ResponseDTO>> AddOrderInformationAsync(OrderInfoDTO[] orderInfoDTO);
         List<ResponseDTO> AddOrderInformation(OrderInfoDTO[] orderInfoDTO);
+        List<OrderInfoDTO> GetAllOrders();
 
         void Update(OrderInfoDTO orderInfoDTO);
 

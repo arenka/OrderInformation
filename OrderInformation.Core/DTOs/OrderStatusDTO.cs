@@ -10,6 +10,6 @@ namespace OrderInformation.Core.DTOs
     {
         public string CustomerOrderNo { get; set; }
         public int Statu { get; set; }
-        public DateTime UpdatedDate => DateTime.Now; 
+        public DateTime UpdatedDate { get; set; }
     }
 }

@@ -1,0 +1,15 @@
+<span>Musteri Siparis No :  {{name}}</span>
+<br>
+<br>
+<span>Statu :  </span>
+<select name="city" class="rounded-inputs20 select-select col-md-3">
+    <option *ngFor="let statu of status" [value]="statu.id">{{statu.name}}</option>
+</select>
+
+
+<br>
+<br>
+
+<button (click)="onCancel()">Iptal</button>&nbsp;
+
+<button (click)="onSubmit()">Kaydet</button>
